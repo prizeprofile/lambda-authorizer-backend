@@ -1,0 +1,21 @@
+{
+  "name": "lambda-authorizer-backend",
+  "version": "1.0.0",
+  "author": "Michael Bausano <bausanomichal@gmail.com>",
+  "license": "MIT",
+  "description": "API Gateway authorizer-backend.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prizeprofile/lambda-authorizer-backend"
+  },
+  "scripts": {
+    "create:stage": "claudia create --name stage-authorizer-backend --region eu-west-1 --handler index.handler --role arn:aws:iam::365488455739:role/lambda_basic_execution --config claudia-stage.json",
+    "create:prod": "claudia create --name prod-authorizer-backend --region eu-west-1 --handler index.handler --role arn:aws:iam::365488455739:role/lambda_basic_execution --config claudia-prod.json",
+    "deploy:stage": "claudia update --config claudia-stage.json",
+    "deploy:prod": "claudia update --config claudia-prod.json"
+  },
+  "devDependencies": {
+    "claudia": "^5.1.1"
+  }
+}
