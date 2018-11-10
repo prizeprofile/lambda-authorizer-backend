@@ -6,10 +6,8 @@ exports.handler = ({ authorizationToken, methodArn }, _, callback) => {
     return callback('Unauthorized')
   }
 
-  const principalId = btoa(Date.now() + Math.random())
-
   callback(null, {
-    principalId,
+    principalId: Date.now() + Math.random(),
     context,
     policyDocument: {
       Version: '2012-10-17',
